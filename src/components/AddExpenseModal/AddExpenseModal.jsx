@@ -9,6 +9,7 @@ const AddExpenseModal = ({ open, onClose }) => {
   const handleSubmit = (formData) => {
     addExpense({ id: uuidv4(), ...formData });
     onClose();
+    alert("Expense added!");
   };
 
   return (
