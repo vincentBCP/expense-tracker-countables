@@ -1,8 +1,18 @@
-# React + Vite
+1. Download and install NodeJS (https://nodejs.org/en/download).
+2. Download and install git (https://git-scm.com/book/en/v2/Getting-Started-Installing-Git);
+3. Open terminal and run git command below to clone repository.
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+- git clone https://github.com/vincentBCP/expense-tracker-countables.git
 
-Currently, two official plugins are available:
+4. Change directory to the project and install project dependencies.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+(in the same terminal run terminal commands below)
+
+- cd expense-tracker-countables
+- npm install
+
+5. Run the app.
+
+(in the same terminal run terminal command below)
+
+- npm run dev
