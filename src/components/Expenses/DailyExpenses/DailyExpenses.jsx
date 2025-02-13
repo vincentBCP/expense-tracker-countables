@@ -5,6 +5,7 @@ import useExpenseStore from "../../../store/expense";
 import CommonFilter from "../../common/CommonFilter";
 import formatNum from "format-num";
 import { addDays, format, isBefore } from "date-fns";
+import CommonTable from "../../common/CommonTable";
 
 const DailyExpenses = () => {
   const { expenses } = useExpenseStore();
@@ -46,41 +47,32 @@ const DailyExpenses = () => {
   return (
     <div>
       <CommonFilter type="date" onFilter={handleFilter} />
-      <table className="mt-6 w-full border-collapse">
-        <thead>
-          <tr>
-            <th className="border p-1 text-sm w-[30px]">#</th>
-            <th className="border w-[150px] p-1 text-sm">Date</th>
-            <th className="border text-sm">Description</th>
-            <th className="border w-[150px] text-sm">Amount</th>
-          </tr>
-        </thead>
-        <tbody>
-          {orderBy(filteredExpenses, "date", "asc").map((expense, index) => (
-            <tr key={expense.id}>
-              <td className="border text-center text-sm">{index + 1}</td>
-              <td className="border py-1 px-2 text-sm">{expense.date}</td>
-              <td className="border py-1 px-2 text-sm">
-                {expense.description}
-              </td>
-              <td className="border py-1 px-2 text-sm text-right">
-                ₱{formatNum(Number(expense.amount), { minFraction: 2 })}
-              </td>
-            </tr>
-          ))}
-          <tr>
-            <td />
-            <td />
-            <td />
-            <td className="text-right p-2 text-sm">
-              ₱
-              {formatNum(
-                Number(sum(filteredExpenses.map((e) => Number(e.amount))))
-              )}
-            </td>
-          </tr>
-        </tbody>
-      </table>
+      <CommonTable
+        numbered
+        className="mt-6"
+        heads={[
+          { label: "Date", width: 150 },
+          { label: "Description" },
+          { label: "Amount", width: 150 },
+        ]}
+        cols={[
+          { key: "date" },
+          { key: "description" },
+          {
+            key: "amount",
+            className: "text-right",
+            render: (data) =>
+              `₱${formatNum(Number(data.amount), { minFraction: 2 })}`,
+          },
+        ]}
+        data={filteredExpenses}
+      />
+      <p className="text-sm text-right pr-2 mt-2">
+        ₱
+        {formatNum(Number(sum(filteredExpenses.map((e) => Number(e.amount)))), {
+          minFraction: 2,
+        })}
+      </p>
     </div>
   );
 };
