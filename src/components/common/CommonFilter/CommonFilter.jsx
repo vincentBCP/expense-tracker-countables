@@ -4,7 +4,11 @@ import CommonInput from "../CommonInput/CommonInput";
 import CommonButton from "../CommonButton";
 import { format, isBefore } from "date-fns";
 
-const CommonFilter = ({ type = "date" /* date | month */, hideSearch }) => {
+const CommonFilter = ({
+  type = "date" /* date | month */,
+  onFilter,
+  hideSearch,
+}) => {
   const [filter, setFilter] = useState({
     startDate: format(new Date(), type === "month" ? "yyyy-MM" : "yyyy-MM-dd"),
     endDate: format(new Date(), type === "month" ? "yyyy-MM" : "yyyy-MM-dd"),
@@ -25,7 +29,7 @@ const CommonFilter = ({ type = "date" /* date | month */, hideSearch }) => {
 
   const handleSearch = () => {
     if (validateFilter()) {
-      console.log(filter);
+      onFilter(filter);
     }
   };
 

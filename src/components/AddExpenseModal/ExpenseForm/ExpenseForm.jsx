@@ -66,6 +66,7 @@ const ExpenseForm = ({ onSubmit }) => {
         label="Amount"
         type="number"
         min="0"
+        step="0.01"
         required
         value={formData.amount}
         onChange={(val) => setFormData((data) => ({ ...data, amount: val }))}
