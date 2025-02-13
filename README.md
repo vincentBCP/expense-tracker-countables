@@ -16,3 +16,5 @@
 (in the same terminal run terminal command below)
 
 - npm run dev
+
+Application is also deployed thru github pages. https://vincentbcp.github.io/expense-tracker-countables/
