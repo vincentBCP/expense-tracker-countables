@@ -9,7 +9,7 @@ const CommonSearchInput = ({
 }) => {
   return (
     <div
-      className={`border border-gray-500 rounded-md flex items-center py-2 px-2 self-end w-[220px] gap-1 ${className}`}
+      className={`border border-gray-500 rounded-md flex items-center py-2 px-2 self-end w-full sm:max-w-[220px] gap-1 ${className}`}
     >
       <input
         className="outline-none text-sm grow-1"

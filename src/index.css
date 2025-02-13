@@ -1,5 +1,9 @@
 @import "tailwindcss";
 
+body {
+  background-color: green;
+}
+
 @theme {
   --animate-slide-in: slideInAnimate 0.2s ease-out;
 

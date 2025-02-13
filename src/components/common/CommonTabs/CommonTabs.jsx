@@ -11,7 +11,7 @@ const CommonTabs = ({ tabs /* [{label: string, content: ReactNode}] */ }) => {
           <div
             key={tab.label}
             className={clsx(
-              "relative border border-gray-400 border-b-0 rounded-t-md px-2 py-1 text-sm cursor-pointer bg-stone-200",
+              "relative border border-gray-400 border-b-0 rounded-t-md p-2 text-sm uppercase cursor-pointer bg-stone-200",
               {
                 "bg-white": index === activeIndex,
                 "after:content-[''] after:w-full after:h-[3px] after:bg-white after:absolute after:bottom-[-2px] after:left-0":
@@ -24,7 +24,7 @@ const CommonTabs = ({ tabs /* [{label: string, content: ReactNode}] */ }) => {
           </div>
         ))}
       </div>
-      <div className="border border-gray-400 p-4">
+      <div className="border border-gray-400 p-4 bg-white">
         {tabs[activeIndex].content}
       </div>
     </div>

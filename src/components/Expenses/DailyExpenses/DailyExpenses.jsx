@@ -51,9 +51,9 @@ const DailyExpenses = () => {
         numbered
         className="mt-6"
         heads={[
-          { label: "Date", width: 150 },
+          { label: "Date", className: "sm:w-[150px]" },
           { label: "Description" },
-          { label: "Amount", width: 150 },
+          { label: "Amount", className: "sm:w-[150px]" },
         ]}
         cols={[
           { key: "date" },
@@ -67,7 +67,7 @@ const DailyExpenses = () => {
         ]}
         data={filteredExpenses}
       />
-      <p className="text-sm text-right pr-2 mt-2">
+      <p className="text-sm text-right pr-2 mt-2 font-bold">
         ₱
         {formatNum(Number(sum(filteredExpenses.map((e) => Number(e.amount)))), {
           minFraction: 2,

@@ -2,21 +2,19 @@ const CommonTable = ({ heads, cols, data, numbered, className = "" }) => {
   return (
     <table className={`w-full border-collapse ${className}`}>
       <thead>
-        <tr>
+        <tr className="bg-stone-200">
           {numbered && <th className="border p-1 text-sm w-[30px]">#</th>}
           {heads.map((head) => (
             <th
               key={head.label}
-              className={`border p-1 text-sm ${
-                head.width ? `w-[${head.width}px]` : ""
-              }`}
+              className={`border p-1 text-sm ${head.className || ""}`}
             >
               {head.label}
             </th>
           ))}
         </tr>
       </thead>
-      <tbody>
+      <tbody className="[&>*:nth-child(even)]:bg-stone-200">
         {data.map((d, index) => (
           <tr key={d?.id || d}>
             {numbered && (
