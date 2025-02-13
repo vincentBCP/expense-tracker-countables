@@ -1,1 +1,16 @@
 @import "tailwindcss";
+
+@theme {
+  --animate-slide-in: slideInAnimate 0.2s ease-out;
+
+  @keyframes slideInAnimate {
+    0% {
+      transform: translateY(50%);
+      opacity: 0;
+    }
+    100% {
+      transform: translateY(0);
+      opacity: 1;
+    }
+  }
+}
